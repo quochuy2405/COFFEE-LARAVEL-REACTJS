@@ -1,0 +1,104 @@
+@media screen and (max-width: 400px) {
+  .App .Export-nav input,
+  .App .Export-nav div {
+    width: 90%;
+    margin: 0 8px;
+  }
+  .App .Export-nav button.btn.btn-success {
+    width: 80%;
+    margin-left: 16px !important;
+  }
+  .App .Export-nav input {
+    width: 90%;
+  }
+  .App .Export-nav .selectDate {
+    width: 90%;
+    margin: 8px 8px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .App .Admin_main .body_render .itemTable {
+    width: 800px;
+    margin: 0 auto;
+  }
+  .App .Export-nav {
+    margin-left: 10.5%;
+  }
+  .App .Login .loginFrom {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+  }
+
+  .App .Login .loginFrom .img_group img {
+    border-radius: 0;
+  }
+  .App .SignIn .signinFrom {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+  }
+  .App .SignIn .signinFrom .img_group img {
+    border-radius: 0;
+  }
+
+  .App .Admin .Admin_main .main_menu {
+    min-width: 100%;
+    position: absolute;
+    transform: translateX(-100%);
+    z-index: 999;
+    width: 30%;
+    height: calc(100vh - 44px);
+    transition: transform ease 0.3s;
+  }
+  .App .Admin .Admin_main .close_admin {
+    visibility: visible;
+  }
+
+  .App .Admin .Admin_main .bar_admin {
+    visibility: visible;
+  }
+}
+@media screen and (max-width: 1124px) and (min-width: 601px) {
+  .App .Admin_main .body_render .itemTable {
+    width: 800px;
+    margin: 0 auto;
+  }
+  .App .Export-nav {
+    margin-left: 5.5%;
+  }
+  .App .Admin .Admin_main .main_menu {
+    min-width: 300px;
+    position: absolute;
+    transform: translateX(-100%);
+    z-index: 999;
+    width: 30%;
+    height: 100%;
+    transition: transform ease 0.3s;
+  }
+  .App .Admin .Admin_main .close_admin {
+    visibility: visible;
+  }
+  .App .Admin .Admin_main .bar_admin {
+    visibility: visible;
+  }
+  .App .body_page .titlePro {
+    max-width: 75px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+@media screen and (max-width: 1056px) and (min-width: 601px) {
+  .App .Login .loginFrom {
+    width: 90%;
+    height: 80%;
+  }
+
+  .App .SignIn .signinFrom {
+    width: 90%;
+    height: 80%;
+  }
+}

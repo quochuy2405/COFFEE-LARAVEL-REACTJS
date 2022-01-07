@@ -1,0 +1,23 @@
+.body_Page.Store {
+  & .Intro {
+    background-image: url("https://file.hstatic.net/1000075078/file/untitled_design_64d7e90f1ee04cdaa5fa3ae45c4cf56b.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    width: 100%;
+    height: 200px;
+    opacity: 0.9;
+    position: relative;
+    & p {
+      font-size: 30px;
+      color: white;
+      font-weight: 600;
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}

@@ -1,0 +1,73 @@
+@import "variables.css";
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently                                supported by Chrome, Edge, Opera and Firefox */
+}
+
+body {
+  font-size: 0.85rem;
+  font-weight: 400;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+  line-height: 1.5;
+  color: #212529;
+  text-align: left;
+}
+body .row {
+  margin-left: 0;
+  margin-right: 0;
+}
+.body_Page {
+  padding-top: var(--height-header);
+}
+*::-webkit-scrollbar {
+  border-radius: 20px;
+  width: 3.5px;
+  background-color: white;
+}
+.Header .btn-success {
+  background-color: #ffa84c !important;
+  border: #cf6b00 !important ;
+  outline: #cf6b00 !important ;
+}
+.btn-success {
+  background-color: #f89328 !important;
+  border: #cf6b00 !important ;
+  outline: #cf6b00 !important ;
+}
+.btn-success:hover {
+  background-color: #ff792b !important;
+  color: #ffffff !important;
+}
+.Header .btn-success:hover {
+  background-color: #f7f7f7 !important;
+  color: #ff8706 !important;
+}
+.btn-success:focus {
+  box-shadow: 0 0 0 0.25rem #ff8706;
+}
+/* Track */
+*::-webkit-scrollbar-track {
+  border-radius: 1px;
+}
+
+/* Handle */
+*::-webkit-scrollbar-thumb {
+  background: rgb(243, 157, 27);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+*::-webkit-scrollbar-thumb:hover {
+  background: rgb(255, 187, 85);
+}

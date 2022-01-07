@@ -1,0 +1,13 @@
+.Export-nav {
+  padding-top: 20px;
+  display: block;
+  gap: 40px;
+  margin-left: 2.5%;
+  margin-bottom: -40px;
+  & .btn,
+  .selectDate {
+    min-width: 100px;
+    line-height: 40px;
+    height: 55px;
+  }
+}
