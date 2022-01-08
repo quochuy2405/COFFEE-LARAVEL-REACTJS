@@ -110,7 +110,6 @@ export const forgotPass = async (email, data) => {
 export const isEmail = async (email) => {
   try {
     const data = { Email: email };
-    console.log(data);
     const res = await axios.post(`/customer/checkEmail`, data);
     if (res?.status === 200) return { success: true };
     else return { success: false };

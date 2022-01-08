@@ -23,7 +23,7 @@ export default function ConfirmNewPass({ email, conFirm, setConFirm }) {
     if (password?.NewPassword === password?.ConfirmNewPassword) {
       const response = await forgotPass(email, password);
       console.log(response);
-      if (response.status === 200) {
+      if (response?.status === 200) {
         enqueueSnackbar("Thành công", { variant: "success" });
         history.push("/login");
         setConFirm(false);

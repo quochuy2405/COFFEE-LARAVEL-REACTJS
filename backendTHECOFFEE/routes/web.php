@@ -50,7 +50,7 @@ Route::get('/supplier', function () {
 Route::get('/stores/customer', function () {
     $data = DB::table('Store')->get();
     return response()->json($data);
-})->middleware('R12');
+});
 Route::get('/stores/district', function () {
     $Data = DB::table('Store')->select('District')
         ->selectRaw('count(*) as Count')
@@ -88,7 +88,7 @@ Route::get('/role', function () {
 })->middleware('R1');
 //HTTP[GET]:id
 Route::get('/bill/{id}', function ($id) {
-    $data = DB::table('Bill')->where("id", "=", $id)->get();
+    $data = DB::table('Bill')->where("CustomerId", "=", $id)->get();
     return response()->json($data);
 });
 Route::get('/account/{id}', function ($id) {
@@ -118,7 +118,7 @@ Route::get('/productType/{id}', function ($id) {
 Route::get('/customer/{id}', function ($id) {
     $data = DB::table('users')->where("id", "=", $id)->first();
     return response()->json($data);
-})->middleware('R12');
+});
 Route::get('/news/{id}', function ($id) {
     $data = DB::table('News')->where("id", "=", $id)->first();
     return response()->json($data);
@@ -277,7 +277,7 @@ Route::post('/bill/purchase', function (Request $request) {
     } catch (Exception $e) {
         return response('Insert failed', 400);
     }
-})->middleware('R12');
+});
 Route::post('/role/add', function (Request $request) {
     try {
         $data = $request->all();
@@ -365,7 +365,7 @@ Route::post('/customer/checkEmail', function (Request $request) {
     try {
         $data = $request->all();
 
-        $isEmail = Db::table("Customer")->where("Email", $data['Email'])->get();
+        $isEmail = Db::table("users")->where("Email", $data['Email'])->get();
         if (!$isEmail->isEmpty()) {
             return response('isEmail', 200);
         }
@@ -434,13 +434,13 @@ Route::post('/employee/create', function (Request $request) {
 Route::put('/customer/forgot/{email}', function ($email, Request $request) {
     try {
         $data = $request->all();
-        if (!$email->isEmpty()) {
-            $Customer = Db::table("Customer")->where("Email", $email)->get();
-            if (!$Customer->isEmpty()) {
+        if ($email) {
+            $Customer = Db::table("users")->where("Email", $email)->get();
+            if (count($Customer)) {
 
-                Db::table("Customer")->where("Email", $email)
+                Db::table("users")->where("Email", $email)
                     ->update([
-                        'Password' => $data['NewPassword'],
+                        'Password' => bcrypt($data['NewPassword']),
                     ]);
                 return response('Update Successfully', 200);
             }
@@ -463,6 +463,7 @@ Route::put('/customer/edit/{id}', function ($id, Request $request) {
                 $customerEdit["Phone"] = $data["Phone"];
                 $customerEdit["Address"] = $data["Address"];
                 $customerEdit["Gender"] = $data["Gender"];
+                $customerEdit["Avata"] = $data["Avata"];
                 Db::table("users")->where("Id", $id)->update($customerEdit);
                 return response('Update Successfully', 200);
             }
@@ -473,7 +474,7 @@ Route::put('/customer/edit/{id}', function ($id, Request $request) {
     } catch (Exception $e) {
         return response('Update Faild', 400);
     }
-})->middleware('R12');
+});
 Route::put('/store/update/{id}', function ($id, Request $request) {
     try {
         $data = $request->all();
@@ -576,7 +577,7 @@ Route::put('/account/edit/{id}', function ($id, Request $request) {
         if ($id) {
             $News = Db::table("Account")->where("Id", $id)->get();
             if (!$News->isEmpty()) {
-
+                $data['password']= bcrypt($data['password']);
                 Db::table("Account")->where("Id", $id)->update($data);
                 return response('Update Successfully', 200);
             }
